@@ -45,10 +45,11 @@ export const getStudentById = (req,res) => {
     } catch (error) {
         console.log(error)
     }
-
-
-
 }
+
+
+
+
 
 
 //crear un estudiante

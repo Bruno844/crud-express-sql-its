@@ -6,24 +6,25 @@ export const getAllCourseOfStudent = (req,res) => {
 
     const {id} = req.params
 
-    connection.query(`
-
-                SELECT *
-                FROM cursos
-                INNER JOIN estudiantes_cursos
-                ON estudiantes_cursos.curso_id = cursos.id
-                
-
+    const consult = `
     
-                    `
+                SELECT e.nombre, e.edad, c.nombre as nombreCurso, c.descripcion
+                FROM estudiantes e
+                INNER JOIN estudiantes_cursos ec
+                ON e.id = ec.estudiante_id
+                INNER JOIN cursos c
+                ON c.id = ec.curso_id
     
-    , (err,data) => {
+    
+    `
+
+    connection.query(consult, (err,data) => {
         if(err){
-            res.json({msg: 'error al obtener los datos',err})
+            res.json({err})
         }
         else{
             res.json({
-                msg: 'exito en obtener los datos',
+                msg: 'exito',
                 data
             })
         }

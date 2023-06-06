@@ -44,7 +44,7 @@ class Server {
         this.app.use('/api/estudiantes', studentRoutes);
         this.app.use('/api/profesores', teacherRoutes);
         this.app.use('/api/cursos', courseRoutes );
-        this.app.use('/api/estudiantes', studentCourseRoutes )
+        //this.app.use('/api/estudiantes', studentCourseRoutes )
     }
 
 
