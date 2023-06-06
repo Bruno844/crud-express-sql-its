@@ -7,7 +7,7 @@ import courseRoutes from '../routes/course.routes'
 import studentCourseRoutes from '../routes/studentCourse.routes';
 
 
-
+//esta clase contiene todas las configuraciones generales para poder crear un servidor backend de manera organizada y modularizada por carpetas y funciones propias
 class Server {
 
 
@@ -22,6 +22,7 @@ class Server {
     }
 
 
+    //metodo que funcionan como puente
     middlewares(){
         this.app.use(cors())
         this.app.use(express.json());
@@ -31,6 +32,7 @@ class Server {
 
 
 
+    //metodo para crear un servidor y que este encendido cada que se requiera del mismo
     listen(){
 
         this.app.listen(3000, () => {
@@ -39,6 +41,8 @@ class Server {
 
     }
 
+
+    //rutas en donde el usuario coloca la url que nosotros le configuramos, de esta manera puede consultar las funciones y datos que el mismo requiera.
     routes(){
 
         this.app.use('/api/estudiantes', studentRoutes);
@@ -48,6 +52,7 @@ class Server {
     }
 
 
+    //metodo para la conexion con la base de datos
     connectDb(){
 
         connection.connect((err) => {
