@@ -5,6 +5,7 @@ import studentRoutes from '../routes/student.routes';
 import teacherRoutes from '../routes/teacher.routes';
 import courseRoutes from '../routes/course.routes'
 import studentCourseRoutes from '../routes/studentCourse.routes';
+import studentPassRoutes from '../routes/studentPass.routes'
 
 
 //esta clase contiene todas las configuraciones generales para poder crear un servidor backend de manera organizada y modularizada por carpetas y funciones propias
@@ -45,6 +46,7 @@ class Server {
     //rutas en donde el usuario coloca la url que nosotros le configuramos, de esta manera puede consultar las funciones y datos que el mismo requiera.
     routes(){
 
+        this.app.use('/api/estudiantepass', studentPassRoutes)
         this.app.use('/api/estudiantes', studentRoutes);
         this.app.use('/api/profesores', teacherRoutes);
         this.app.use('/api/cursos', courseRoutes );
